@@ -1,4 +1,5 @@
 import Storage from 'services/Storage'
+import { objectAssign } from 'commons'
 import Cache from 'services/CacheList'
 import fetch from 'services/fetch'
 import { BILL_LIST, SET_PROGRESS, CHECK_EXIT } from '../mutation-types'
@@ -28,7 +29,7 @@ export const mutations = {
   },
 
   [CHECK_EXIT](state) {
-    state = Object.assign({}, defaults)
+    state = objectAssign({}, defaults)
   },
 }
 
@@ -50,7 +51,7 @@ export const actions = {
     }
 
     // reset bills info
-    dispatch(BILL_LIST, Object.assign({}, defaults))
+    dispatch(BILL_LIST, objectAssign({}, defaults))
     dispatch(SET_PROGRESS, true)
 
     fetch.bill.list(settings).then( payload => {

@@ -20,7 +20,7 @@ requireAll(require.context('pages/', true, /i18n\.js$/))
 
 // initial state
 export const state = Storage.get(name, defaults)
-
+console.log(state)
 state.current = defaults[state.lang]
 
 // initial local

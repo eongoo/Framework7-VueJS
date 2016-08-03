@@ -1,4 +1,5 @@
 // http://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/
+import { objectAssign } from 'commons'
 
 import containers from 'images/containers'
 import f7 from 'images/icons-f7'
@@ -14,7 +15,7 @@ export {
   operations,
 }
 
-export default Object.assign({},
+export default objectAssign({},
   containers,
   f7,
   ionic,

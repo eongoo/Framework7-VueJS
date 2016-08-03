@@ -1,4 +1,5 @@
 import Storage from 'services/Storage'
+import { objectAssign } from 'commons'
 import fetch from 'services/fetch'
 import { KONTR_INFO, SET_PROGRESS, CHECK_EXIT } from '../mutation-types'
 
@@ -15,12 +16,12 @@ export const state = Storage.get(name, defaults)
 // mutations
 export const mutations = {
   [KONTR_INFO](state, payload) {
-    Object.assign(state, payload)
+    objectAssign(state, payload)
     Storage.set(name, state)
   },
 
   [CHECK_EXIT](state) {
-    state = Object.assign({}, defaults)
+    state = objectAssign({}, defaults)
   },
 }
 

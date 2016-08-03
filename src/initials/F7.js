@@ -1,10 +1,11 @@
 /* global NODE_ENV, DEBUG */
+import { objectAssign } from 'commons'
 
 import { F7, Framework7, Dom7, isIos, isAndroid } from 'commons'
 
 var platform = isIos ? 'ios' : 'android'
 
-Object.assign(F7, new Framework7({
+objectAssign(F7, new Framework7({
   modalTitle: '',
   material: isAndroid,
   // pushState: true,

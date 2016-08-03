@@ -1,4 +1,5 @@
 import { F7 } from 'commons'
+import { objectAssign } from 'commons'
 import Storage from 'services/Storage'
 import fetch from 'services/fetch'
 import { CHECK_LOGIN, CHECK_EXIT, RESET_AUTH } from '../mutation-types'
@@ -19,13 +20,13 @@ export const state = Storage.get(name, defaults)
 // mutations
 export const mutations = {
   [CHECK_LOGIN](state, data) {
-    state = Object.assign(state, data)
+    state = objectAssign(state, data)
     Storage.set(name, state)
   },
 
   [CHECK_EXIT](state) {
     Storage.clear()
-    state = Object.assign({}, defaults)
+    state = objectAssign({}, defaults)
   },
 
   [RESET_AUTH](state, name) {

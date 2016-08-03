@@ -1,4 +1,5 @@
 import Storage from 'services/Storage'
+import { objectAssign } from 'commons'
 import fetch from 'services/fetch'
 import {
   SET_SETTINGS,
@@ -27,7 +28,7 @@ export const state = Storage.get(name, defaults)
 // mutations
 export const mutations = {
   [SET_SETTINGS](state, payload) {
-    Object.assign(state, payload)
+    objectAssign(state, payload)
     Storage.set(name, state)
   },
 
@@ -37,7 +38,7 @@ export const mutations = {
   },
 
   [CHECK_EXIT](state) {
-    state = Object.assign({}, defaults)
+    state = objectAssign({}, defaults)
   },
 }
 

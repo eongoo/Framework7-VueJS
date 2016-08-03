@@ -2,6 +2,7 @@
  * export all action by name
  */
 
+import { objectAssign } from 'commons'
 const actions = requireAll(require.context('./modules/', false, /\.js$/))
 
 const {
@@ -55,6 +56,6 @@ export {
 // https://webpack.github.io/docs/context.html#require-context
 function requireAll(requireContext) {
   return requireContext.keys().reduce( (actions, file) => {
-    return Object.assign(actions, requireContext(file).actions)
+    return objectAssign(actions, requireContext(file).actions)
   }, {})
 }

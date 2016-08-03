@@ -1,3 +1,5 @@
+import { objectAssign } from 'commons'
+//console.log(objectAssign({foo: 0}, {bar: 1}))
 const Storage = localStorage
 
 export default { get, set, clear }
@@ -13,7 +15,7 @@ export function get(name, defaults = null) {
   }
 
   if (!data) {
-    data = Object.assign({}, defaults)
+    data = objectAssign({}, defaults)
     data && set(name, defaults)
   }
 

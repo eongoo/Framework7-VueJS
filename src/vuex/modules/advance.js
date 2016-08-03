@@ -1,4 +1,5 @@
 import Storage from 'services/Storage'
+import { objectAssign } from 'commons'
 import fetch from 'services/fetch'
 import { ADVANCE_INFO, CHECK_EXIT, SET_PROGRESS } from '../mutation-types'
 
@@ -18,12 +19,12 @@ export const state = Storage.get(name, defaults)
 // mutations
 export const mutations = {
   [ADVANCE_INFO](state, payload) {
-    state = Object.assign(state, payload)
+    state = objectAssign(state, payload)
     Storage.set(name, state)
   },
 
   [CHECK_EXIT](state) {
-    state = Object.assign({}, defaults)
+    state = objectAssign({}, defaults)
   },
 }
 

@@ -1,4 +1,5 @@
 /* globals DEBUG */
+import { objectAssign } from 'commons'
 
 import { Vue } from 'commons'
 import store from 'vuex/store'
@@ -71,7 +72,7 @@ function extendSettings(settings, { url }) {
 
   // if null - disallow headers in fetch
   if (settings.headers !== null) {
-    settings.headers = Object.assign(headers, settings.headers || {})
+    settings.headers = objectAssign(headers, settings.headers || {})
   }
 
   settings.url = url

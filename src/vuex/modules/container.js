@@ -1,4 +1,5 @@
 import Storage from 'services/Storage'
+import { objectAssign } from 'commons'
 import Cache from 'services/CacheItem'
 import fetch from 'services/fetch'
 import { CNT_INFO, SET_PROGRESS, CHECK_EXIT } from '../mutation-types'
@@ -26,7 +27,7 @@ export const mutations = {
   },
 
   [CHECK_EXIT](state) {
-    state = Object.assign({}, defaults)
+    state = objectAssign({}, defaults)
   },
 }
 
@@ -40,7 +41,7 @@ export const actions = {
     }
 
     // reset container info
-    dispatch(CNT_INFO, Object.assign({}, defaults))
+    dispatch(CNT_INFO, objectAssign({}, defaults))
     dispatch(SET_PROGRESS, true)
 
     fetch.container.info(settings).then( payload => {

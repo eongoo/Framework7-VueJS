@@ -9,6 +9,7 @@ import VueResource from 'vue-resource'
 import 'Framework7/dist/js/framework7.js'
 
 import moment from 'moment'
+import objectAssign from 'object-assign'
 import 'moment/locale/ru'
 
 export {
@@ -22,6 +23,7 @@ export {
   Dom7,
 
   moment,
+  objectAssign,
 }
 
 export let isIos = Framework7.prototype.device.ios
